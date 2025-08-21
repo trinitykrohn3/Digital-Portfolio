@@ -92,10 +92,27 @@
         .hero .description {
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0.8;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 2rem;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .contact-info {
@@ -288,6 +305,561 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 2rem;
             border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card:hover::before {
+            transform: translate(-25%, -25%);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .project-date {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Involvement */
+        .involvement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .involvement-card {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            color: #1a202c;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .involvement-card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .location-date {
+                text-align: left;
+            }
+            
+            .education-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Trinity Krohn</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#involvement">Involvement</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD//2Q=" alt="Trinity Krohn" class="profile-photo fade-in" id="profile-photo">
+            <h1 class="fade-in">Trinity Krohn</h1>
+            <p class="subtitle fade-in stagger-1">Computer Science & Data Science Double Major</p>
+            <p class="description fade-in stagger-2">
+                Entrepreneurially-minded aspiring Technical Product Manager passionate about the AI space. 
+                Currently transforming data into actionable insights while pursuing dual degrees at UW-Madison, 
+                with hands-on experience in data optimization, software engineering, and AI solution development. 
+                Driven to bridge the gap between cutting-edge technology and real-world business impact.
+            </p>
+            
+            <div class="contact-info fade-in stagger-3">
+                <a href="mailto:tkrohn2@wisc.edu" class="contact-item">
+                    📧 tkrohn2@wisc.edu
+                </a>
+                <a href="tel:9202656658" class="contact-item">
+                    📱 920.265.6658
+                </a>
+                <a href="#" class="contact-item">
+                    📍 Green Bay, WI
+                </a>
+                <a href="#" class="contact-item">
+                    💼 LinkedIn
+                </a>
+            </div>
+            
+            <a href="#experience" class="cta-button fade-in stagger-4">View My Work</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <h2>Education</h2>
+            <div class="education-card fade-in">
+                <h3>University of Wisconsin-Madison</h3>
+                <div class="education-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Degrees</div>
+                        <div class="detail-value">B.S. Computer Science<br>B.S. Data Science<br>Minor in Entrepreneurship</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Expected Graduation</div>
+                        <div class="detail-value">May 2027</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">GPA</div>
+                        <div class="detail-value">3.6/4.0<br><em>Dean's List: Fall & Spring 2023</em></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">Madison, WI</div>
+                    </div>
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <div class="detail-label">Relevant Coursework</div>
+                    <div class="skill-tags" style="margin-top: 0.5rem;">
+                        <span class="skill-tag">Data Science Modeling</span>
+                        <span class="skill-tag">Data Ethics</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Discrete Math</span>
+                        <span class="skill-tag">Computer Engineering 1&2</span>
+                        <span class="skill-tag">Machine Organization & Programming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <h2>Work Experience</h2>
+            <div class="experience-grid">
+                <div class="job-card fade-in stagger-1">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Data Optimization & Digital Experience Intern</div>
+                            <div class="company">UnitedHealthcare</div>
+                        </div>
+                        <div class="location-date">
+                            Minneapolis, MN<br>Jun 2025 - Present
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Collaborated with Product Owners to gather business requirements and build interactive dashboards in PowerBI, Adobe Analytics, and Databricks</li>
+                        <li>Transformed raw data into actionable insights, automating manual reporting and enabling real-time, self-serve data access</li>
+                        <li>Supported member-facing digital products with advanced analytics solutions</li>
+                    </ul>
+                </div>
+
+                <div class="job-card fade-in stagger-2">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">AI Security Software Technical Sales Intern</div>
+                            <div class="company">Technova Industries Inc.</div>
+                        </div>
+                        <div class="location-date">
+                            Remote<br>Mar 2025 - Jun 2025
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Conducted outbound outreach and comprehensive industry research</li>
+                        <li>Promoted Technova's AI-powered gate and dock security platform to potential clients</li>
+                        <li>Developed technical sales strategies for cutting-edge AI security solutions</li>
+                    </ul>
+                </div>
+
+                <div class="job-card fade-in stagger-3">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Data Scientist Intern</div>
+                            <div class="company">Green Bay Packaging Inc. - Corporate</div>
+                        </div>
+                        <div class="location-date">
+                            Green Bay, WI<br>May 2024 – Feb 2025
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Utilized Power BI, Power Query, and SQL to generate reports tailored to company & customer needs</li>
+                        <li>Discovered a tool that made processes 2x faster, now implemented company-wide</li>
+                        <li>Reduced redundant data by 50% and improved data integrity through report restructuring</li>
+                        <li>Optimized gateways to cut refresh failures by 3x</li>
+                    </ul>
+                </div>
+
+                <div class="job-card fade-in stagger-4">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Software Engineering Intern</div>
+                            <div class="company">National Vision Administrators (NVA)</div>
+                        </div>
+                        <div class="location-date">
+                            New Jersey, NJ - Remote<br>Jun 2023 - Sep 2023
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Collaborated on a Scrum team of 10 to develop full stack File Monitor software in Java</li>
+                        <li>Automated the process of distributing output files to user community</li>
+                        <li>Proposed 5 AI solutions to CEO, which were passed to ownership for further consideration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in stagger-1">
+                    <div class="project-header">
+                        <h3 class="project-title">AI Chatbot for Entrepreneurs</h3>
+                        <span class="project-date">Jun 2025</span>
+                    </div>
+                    <p class="project-description">
+                        Developed AI-powered backend services with FastAPI and Python, integrating Gemini API to generate 
+                        tailored business recommendations. Deployed scalable microservices on Google Cloud Run with a React.js 
+                        frontend to support up to 1 million small business owners via America's SBDC.
+                    </p>
+                </div>
+
+                <div class="project-card fade-in stagger-2">
+                    <div class="project-header">
+                        <h3 class="project-title">CampusConnect+</h3>
+                        <span class="project-date">Jan 2025</span>
+                    </div>
+                    <p class="project-description">
+                        Founded student life app that unifies campus events into one hub with a social feed, map, and 
+                        real-time updates. Won 1st place at campus pitch competition and is now live on the App Store.
+                    </p>
+                </div>
+
+                <div class="project-card fade-in stagger-3">
+                    <div class="project-header">
+                        <h3 class="project-title">Database Optimization Project</h3>
+                        <span class="project-date">Jul 2024</span>
+                    </div>
+                    <p class="project-description">
+                        Led large-scale database optimization project, restructuring gateway configurations and eliminating 
+                        over 50% of unused company data from Power BI reports. Discovered automation tool that boosted team 
+                        productivity by 70%, now integrated into company's software center.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in stagger-1">
+                    <h4>Programming Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in stagger-2">
+                    <h4>Data & Analytics</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Adobe Analytics</span>
+                        <span class="skill-tag">Power Query</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in stagger-3">
+                    <h4>Web Development</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Full Stack</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in stagger-4">
+                    <h4>Cloud & AI</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Gemini API</span>
+                        <span class="skill-tag">AI Solutions</span>
+                        <span class="skill-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Involvement Section -->
+        <section class="section" id="involvement">
+            <h2>Leadership & Involvement</h2>
+            <div class="involvement-grid">
+                <div class="involvement-card fade-in stagger-1">
+                    <strong>President & Founder</strong><br>
+                    Women in Entrepreneurship
+                </div>
+                <div class="involvement-card fade-in stagger-2">
+                    <strong>Professional Development Officer</strong><br>
+                    Society of Women Engineers (SWE)
+                </div>
+                <div class="involvement-card fade-in stagger-3">
+                    <strong>Selected Member</strong><br>
+                    CS NEST
+                </div>
+                <div class="involvement-card fade-in stagger-4">
+                    <strong>Selected Member</strong><br>
+                    RTC, WIBT, WACM
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Trinity Krohn. Transforming data into impact, one project at a time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add functionality to handle profile photo upload
+        document.getElementById('profile-photo').addEventListener('click', function() {
+            // Create file input for photo upload
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.style.display = 'none';
+            
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('profile-photo').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            document.body.appendChild(fileInput);
+            fileInput.click();
+            document.body.removeChild(fileInput);
+        });
+
+        // Add typing effect to the main title
+        const title = document.querySelector('.hero h1');
+        if (title) {
+            const text = title.textContent;
+            title.textContent = '';
+            let i = 0;
+            
+            setTimeout(() => {
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        title.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+                typeWriter();
+            }, 500);
+        }
+
+        // Add hover effects to cards
+        document.querySelectorAll('.job-card, .project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>            border-radius: 15px;
             color: white;
             transition: transform 0.3s ease;
             position: relative;
