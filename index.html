@@ -377,6 +377,98 @@
             transform: translateY(-3px);
         }
 
+        /* Leadership Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .upload-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px dashed #cbd5e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .upload-placeholder:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            color: #a0aec0;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-text {
+            color: #4a5568;
+            font-weight: 500;
+            text-align: center;
+        }
+
         /* Skills */
         .skills-grid {
             display: grid;
@@ -493,6 +585,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#involvement">Involvement</a></li>
+                    <li><a href="#leadership-gallery">Gallery</a></li>
                 </ul>
             </nav>
         </div>
@@ -503,7 +596,7 @@
         <div class="container">
             <img src="headshot.jpg" alt="Trinity Krohn" class="profile-photo fade-in" id="profile-photo">
             <h1 class="fade-in">Trinity Krohn</h1>
-            <p class="subtitle fade-in stagger-1">Computer Science and Data Science Double Major</p>
+            <p class="subtitle fade-in stagger-1">Computer Science & Data Science Double Major</p>
             <p class="description fade-in stagger-2">
                 Entrepreneurially-minded aspiring Technical Product Manager passionate about the AI space. 
                 Currently transforming data into actionable insights while pursuing dual degrees at UW-Madison, 
@@ -731,16 +824,68 @@
             <h2>Leadership & Involvement</h2>
             <div class="involvement-grid">
                 <div class="involvement-card fade-in stagger-1">
-                    <strong>Founder & President</strong><br>
+                    <strong>President & Founder</strong><br>
                     Women in Entrepreneurship
                 </div>
                 <div class="involvement-card fade-in stagger-2">
                     <strong>Professional Development Officer</strong><br>
                     Society of Women Engineers (SWE)
                 </div>
+                <div class="involvement-card fade-in stagger-3">
+                    <strong>Selected Member</strong><br>
+                    CS NEST
+                </div>
                 <div class="involvement-card fade-in stagger-4">
                     <strong>Selected Member</strong><br>
-                    RTC, WIBT, WACM, CS NEST
+                    RTC, WIBT, WACM
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Gallery Section -->
+        <section class="section" id="leadership-gallery">
+            <h2>Leadership in Action</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in stagger-1">
+                    <div class="upload-placeholder" onclick="uploadPhoto(this, 'Women in Entrepreneurship - Founding Event', 'Leading the inaugural meeting of Women in Entrepreneurship, bringing together aspiring female founders on campus.')">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Click to add photo<br><small>Women in Entrepreneurship Event</small></div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-2">
+                    <div class="upload-placeholder" onclick="uploadPhoto(this, 'Society of Women Engineers - Workshop', 'Organizing professional development workshop as SWE Professional Development Officer, connecting students with industry mentors.')">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Click to add photo<br><small>SWE Professional Development</small></div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-3">
+                    <div class="upload-placeholder" onclick="uploadPhoto(this, 'CampusConnect+ Pitch Competition', 'Presenting CampusConnect+ at the campus pitch competition where we won 1st place, showcasing our student life app solution.')">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Click to add photo<br><small>Pitch Competition Win</small></div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-4">
+                    <div class="upload-placeholder" onclick="uploadPhoto(this, 'CS NEST Collaboration', 'Working with fellow CS NEST members on innovative tech solutions, fostering collaboration in the computer science community.')">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Click to add photo<br><small>CS NEST Activities</small></div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-1">
+                    <div class="upload-placeholder" onclick="uploadPhoto(this, 'Team Leadership Moment', 'Leading a cross-functional team during a hackathon or project collaboration, demonstrating technical project management skills.')">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Click to add photo<br><small>Team Leadership</small></div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-2">
+                    <div class="upload-placeholder" onclick="uploadPhoto(this, 'Entrepreneurship Event', 'Speaking or participating in an entrepreneurship-focused event, sharing insights about the intersection of technology and business.')">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Click to add photo<br><small>Entrepreneurship Event</small></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -790,6 +935,39 @@
             el.style.transition = 'all 0.8s ease-out';
             observer.observe(el);
         });
+
+        });
+
+        // Photo upload functionality for gallery
+        function uploadPhoto(element, title, description) {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.style.display = 'none';
+            
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Replace the placeholder with the actual image
+                        const galleryItem = element.parentElement;
+                        galleryItem.innerHTML = `
+                            <img src="${e.target.result}" alt="${title}" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-title">${title}</div>
+                                <div class="gallery-description">${description}</div>
+                            </div>
+                        `;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            document.body.appendChild(fileInput);
+            fileInput.click();
+            document.body.removeChild(fileInput);
+        }
 
         // Add functionality to handle profile photo upload
         document.getElementById('profile-photo').addEventListener('click', function() {
