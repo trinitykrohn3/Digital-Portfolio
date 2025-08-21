@@ -378,11 +378,11 @@
         }
 
         /* Leadership Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* always 2 per row */
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem; 
         }
         
         .gallery-item {
@@ -843,20 +843,25 @@
 <section class="section" id="leadership-gallery">
   <h2>Leadership in Action</h2>
   <div class="gallery-grid">
+    
     <div class="gallery-item fade-in stagger-1">
       <a href="https://stat.wisc.edu/2025/05/07/data-science-major-trinity-krohn-embraces-entrepreneurship-at-uw-madison/" target="_blank">
-      <img src="https://raw.githubusercontent.com/trinitykrohn3/Digital-Portfolio/main/headshot.jpg" alt="Trinity Krohn Headshot" class="gallery-image">
-      <div class="gallery-overlay">
-        <div class="gallery-title">Student Spotlight Article</div>
-        <div class="gallery-description">Data Science major Trinity Krohn embraces entrepreneurship at UW–Madison.</div>
-      </div>
+        <img src="https://raw.githubusercontent.com/trinitykrohn3/Digital-Portfolio/main/headshot.jpg" alt="Trinity Krohn Headshot" class="gallery-image">
+        <div class="gallery-overlay">
+          <div class="gallery-title">Student Spotlight Article</div>
+          <div class="gallery-description">Data Science major Trinity Krohn embraces entrepreneurship at UW–Madison.</div>
+        </div>
+      </a>
+    </div>
+
     <div class="gallery-item fade-in stagger-2">
       <a href="https://womeninentrepreneurship-uw.vercel.app/" target="_blank">
-      <img src="https://raw.githubusercontent.com/trinitykrohn3/Digital-Portfolio/main/WE!.jpg" alt="Women in Entrepreneurship" class="gallery-image">
-      <div class="gallery-overlay">
-        <div class="gallery-title">Women in Entrepreneurship</div>
-        <div class="gallery-description">Founder & President—empowering student entrepreneurship.</div>
-      </div>
+        <img src="https://raw.githubusercontent.com/trinitykrohn3/Digital-Portfolio/main/WE!.jpg" alt="Women in Entrepreneurship" class="gallery-image">
+        <div class="gallery-overlay">
+          <div class="gallery-title">Women in Entrepreneurship</div>
+          <div class="gallery-description">Founder & President—empowering student entrepreneurship.</div>
+        </div>
+      </a>
     </div>
 
     <div class="gallery-item fade-in stagger-3">
@@ -869,15 +874,16 @@
 
     <div class="gallery-item fade-in stagger-4">
       <a href="https://campusconnect-links.vercel.app/" target="_blank">
-      <img src="https://raw.githubusercontent.com/trinitykrohn3/Digital-Portfolio/main/cc.jpg" alt="CampusConnect+" class="gallery-image">
-      <div class="gallery-overlay">
-        <div class="gallery-title">CampusConnect+</div>
-        <div class="gallery-description">Pitching the app at competitions—connecting student life events in one hub.</div>
-      </div>
+        <img src="https://raw.githubusercontent.com/trinitykrohn3/Digital-Portfolio/main/cc.jpg" alt="CampusConnect+" class="gallery-image">
+        <div class="gallery-overlay">
+          <div class="gallery-title">CampusConnect+</div>
+          <div class="gallery-description">Pitching the app at competitions—connecting student life events in one hub.</div>
+        </div>
+      </a>
     </div>
+
   </div>
 </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
